@@ -63,8 +63,7 @@ Kali Linux OS included a CPU Core of 2 Cores and 2 GB of RAM. The lab
 indicated 192.168.2.163 as the target IP, with the actual IP varying
 based on individual machines.
 
-<img src="./media/image1.png"
-style="width:4.86458in;height:4.00719in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image1.png)
 
 I ensured the successful connection to the network by executing ifconfig
 on my Kali Linux machine.
