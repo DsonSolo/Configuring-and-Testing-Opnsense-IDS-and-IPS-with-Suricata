@@ -72,8 +72,7 @@ on my Kali Linux machine.
 might result in "**command not found**" due to the recent modification
 of the default login to non-root access.
 
-<img src="./media/image2.png"
-style="width:5.59375in;height:1.32292in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image2.png)
 
 To overcome this, I utilized the **sudo su** command to switch users.
 Entering the default password 'kali' granted access to the root user.
@@ -81,7 +80,7 @@ Entering the default password 'kali' granted access to the root user.
 **Note**: While it's a best practice to change credentials, for the sake
 of demonstration, I retained the default settings.
 
-<img src="./media/image3.png" style="width:6.1875in;height:5.14583in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image3.png)
 
 Upon successful login as root, I executed the **ifconfig** command. The
 output confirmed that I was connected to the guest network, evidenced by
@@ -98,7 +97,7 @@ Firstly, I removed the second Network Adapter and configured the
 remaining one to the Internal Network (LAN). This change optimizes
 resource usage, allowing us to focus on setting up Suricata.
 
-<img src="./media/image4.png" style="width:6.5in;height:5.27778in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image4.png)
 
 Note: Suricata should already be preinstalled on Opnsense; let's verify.
 
@@ -107,8 +106,7 @@ Note: Suricata should already be preinstalled on Opnsense; let's verify.
 Navigating to System \> Firmware \> Packages, I confirmed the presence
 of Suricata. This is also the space to reinstall Suricata if needed.
 
-<img src="./media/image5.png"
-style="width:6.08854in;height:2.31247in" />’’
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image5.png)
 
 **Step 2 (Continued): Configuring IDS**
 
@@ -128,22 +126,20 @@ only. Heading to Services \> Intrusion Detection \> Administration:
 6.  Applied the changes and proceeded to download and install Suricata
     packages.
 
-<img src="./media/image6.png" style="width:6.5in;height:4.825in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image6.png)
 
-<img src="./media/image7.png"
-style="width:6.29167in;height:3.39167in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image7.png)
 
 Next, I visited the Rules tab to manage and enable specific rules.
 
-<img src="./media/image8.png" style="width:6.5in;height:4.95764in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image8.png)
 
 **Note**: Running a reconnaissance attack from Kali is part of our test.
 
 The results showed alerts picking up a potential Kali Linux presence on
 the network, demonstrating the IDS's capability.
 
-<img src="./media/image9.png"
-style="width:5.72013in;height:3.59896in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image9.png)
 
 **Step 2 (Continued): Transitioning to IPS**
 
@@ -151,14 +147,12 @@ To simulate more realistic scenarios, I turned on the IPS. After
 powering on the Metasploitable machine, we initiated an aggressive scan
 from Kali, showcasing the IPS's ability to block intrusive activities.
 
-<img src="./media/image10.png"
-style="width:5.60068in;height:3.27604in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image10.png)
 
 This deliberate aggressiveness in the scan revealed the IDS's robust
 capability to detect and respond to potentially malicious activities.
 
-<img src="./media/image11.png"
-style="width:6.20856in;height:3.66146in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image11.png)
 
 **Blocking the aggressive scan:**
 
@@ -169,13 +163,12 @@ within Services \> Intrusion Detection \> Administration:
 
 2.  Applied the changes.
 
-<img src="./media/image12.png" style="width:6.5in;height:3.84722in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image12.png)
 
 3.  In the download tab, enabled (drop filter) and downloaded & updated
     rules.
 
-<img src="./media/image13.png"
-style="width:4.7724in;height:3.75521in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image13.png)
 
 Further customization involved adjusting rules in Policy and Rule
 adjustments, focusing on the 'NMAP'.
@@ -184,9 +177,9 @@ I specifically edited rule \#2024364 (ET SCAN Possible Nmap User-Agent
 Observed), changing its Action to 'Drop,' indicating a proactive
 response to potential threats.
 
-<img src="./media/image14.png" style="width:6.5in;height:5.25in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image14.png)
 
-<img src="./media/image15.png" style="width:6.5in;height:5.30556in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image15.png)
 
 After implementing the changes, I retested the aggressive scan from Kali
 ('nmap -A 192.168.2.11'). This step was crucial in evaluating the
@@ -196,7 +189,7 @@ Post-retest, the IDS alerts confirmed the successful blocking of the
 aggressive scan, validating the capabilities of the Intrusion Prevention
 System.
 
-<img src="./media/image16.png" style="width:6.5in;height:3.18056in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image16.png)
 
 **Demonstrating IPS capabilities with Metasploitable:**
 
@@ -209,45 +202,45 @@ Subsequently, I powered on the Metasploitable machine, obtained my IP
 address (192.168.2.1), and initiated the exploration of potential
 vulnerabilities.
 
-<img src="./media/image17.png" style="width:6.5in;height:3.70833in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image17.png)
 
-<img src="./media/image18.png" style="width:6.5in;height:4.11111in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image18.png)
 
 To simulate an attack, I ran 'nmap -F,' scanning open ports on
 Metasploitable.
 
-<img src="./media/image19.png" style="width:6.5in;height:4.31944in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image19.png)
 
 This was followed by launching Metasploit and searching for the 'vsftpd'
 exploit. On Linux machines, vsftpd is the ftp server used and ironically
 stands for very secure FTP daemon.
 
-<img src="./media/image20.png" style="width:6.5in;height:1.625in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image20.png)
 
 The successful exploitation of 'vsftpd' resulted in gaining root access
 to the Metasploitable machine, effectively illustrating the potential
 risks.
 
-<img src="./media/image21.png" style="width:6.5in;height:2.31944in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image21.png)
 
 Post-exploitation, Opnsense generated alerts, indicating potential
 security breaches. Despite the successful attack, these alerts played a
 crucial role in detecting and documenting the security incident.
 
-<img src="./media/image22.png" style="width:6.5in;height:1.18056in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image22.png)
 
 To enhance security measures, I re-enabled IPS in Services \>
 Administration \> Settings. This was accompanied by a restart of the
 Metasploitable machine.
 
-<img src="./media/image23.png" style="width:6.5in;height:1.22222in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image23.png)
 
 A subsequent attempt to exploit the same vulnerability from Kali Linux
 revealed the successful blocking of the attack by the configured IPS.
 
-<img src="./media/image24.png" style="width:6.5in;height:1.38889in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image24.png)
 
-<img src="./media/image25.png" style="width:6.5in;height:1.33333in" />
+![Screenshot](https://github.com/DsonSolo/Configuring-and-Testing-Opnsense-IDS-and-IPS-with-Suricata/blob/main/image25.png)
 
 **Conclusion of the Lab:**
 
